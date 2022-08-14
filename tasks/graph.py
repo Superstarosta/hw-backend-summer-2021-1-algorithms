@@ -46,7 +46,6 @@ class Graph:
 
         while queue:
             s = queue.pop(0) 
-            print (s, end = " ") 
 
             for neighbour in self._root.outbound:
                 if neighbour not in visited:
