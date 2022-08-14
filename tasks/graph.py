@@ -47,7 +47,7 @@ class Graph:
         while queue:
             s = queue.pop(0) 
 
-            for neighbour in self._root.outbound:
+            for neighbour in s.outbound:
                 if neighbour not in visited:
                     visited.append(neighbour)
                     queue.append(neighbour)
