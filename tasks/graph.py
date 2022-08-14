@@ -28,7 +28,29 @@ class Graph:
         self._root = root
 
     def dfs(self) -> list[Node]:
-        raise NotImplementedError
+        def rec_dfs(graph, node, visited):
+            if node not in visited:
+                visited.append(node)
+                for k in graph.outbound:
+                    rec_dfs(graph,k, visited)
+            return visited
+
+        return rec_dfs(self._root, self._root,[])
 
     def bfs(self) -> list[Node]:
-        raise NotImplementedError
+        visited = [] # List to keep track of visited nodes.
+        queue = []     #Initialize a queue
+
+        visited.append(self._root)
+        queue.append(self._root)
+
+        while queue:
+            s = queue.pop(0) 
+            print (s, end = " ") 
+
+            for neighbour in self._root.outbound:
+                if neighbour not in visited:
+                    visited.append(neighbour)
+                    queue.append(neighbour)
+
+        return visited
