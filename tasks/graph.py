@@ -32,7 +32,7 @@ class Graph:
             if node not in visited:
                 visited.append(node)
                 for k in graph.outbound:
-                    rec_dfs(graph,k, visited)
+                    rec_dfs(k,k, visited)
             return visited
 
         return rec_dfs(self._root, self._root,[])
